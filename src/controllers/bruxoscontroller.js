@@ -13,7 +13,7 @@ const getAllBruxos = (req, res) => {
 const getBruxosById = (req, res) => {
   let id = parseInt(req.params.id);
 
-  const bruxos = bruxos.find(b => b.id === id);
+  const bruxo = bruxos.find(b => b.id === id);
 
   if (bruxo) {
     res.status(200).json(bruxo);
