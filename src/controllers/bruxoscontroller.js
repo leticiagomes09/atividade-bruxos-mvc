@@ -1,0 +1,27 @@
+import dados from "../models/dados.js";
+const { bruxos } = dados;
+
+const getAllBruxos = (req, res) => {
+  const { bruxos, pocoes, animais } = req.query;
+  let resultado = bruxos;
+
+  res.status(200).json({
+    total: resultado.length,
+    data: resultado,
+  });
+};
+
+const getBruxosById = (req, res) => {
+  let id = parseInt(req.params.id);
+
+  const bruxos = bruxos.find(b => b.id === id);
+
+  if (bruxo) {
+    res.status(200).json(bruxo);
+  } else {
+    res.status(404).json({
+      mensagem: "Bruxo não encontrado!",
+    });
+  }
+};
+export { getAllBruxos, getBruxosById };
